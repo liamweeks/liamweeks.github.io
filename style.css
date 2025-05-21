@@ -93,6 +93,12 @@ nav a {
     margin: 3rem;
 }
 
+p {
+    display: block;
+    font-size: 1.6rem;
+    margin: 3rem;
+}
+
 nav a:hover,
 nav a.active {
     border-radius: 0.5rem;
