@@ -2,67 +2,54 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Under Construction</title>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-            rel="stylesheet"
+        <meta
+            name="viewport"
+            ,
+            content="width=device-width, initial-scale=1.0"
         />
-        <style>
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-
-            body {
-                font-family: "Inter", sans-serif;
-                background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-                color: white;
-                height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
-            }
-
-            .container {
-                text-align: center;
-                padding: 2rem;
-            }
-
-            h1 {
-                font-size: 3rem;
-                font-weight: 600;
-                margin-bottom: 1rem;
-            }
-
-            p {
-                font-size: 1.25rem;
-                color: #cfd8dc;
-            }
-
-            .glow {
-                animation: glow 2s ease-in-out infinite alternate;
-            }
-
-            @keyframes glow {
-                from {
-                    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-                }
-                to {
-                    text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
-                }
-            }
-        </style>
+        <!-- @import
+        url("https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400%3B500%3B600&display=swap"); -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Liam Weeks</title>
     </head>
+
     <body>
-        <div class="container">
-            <h1 class="glow">🚧 Website Under Construction 🚧</h1>
-            <p>
-                I'm working hard to bring you something amazing. Check back
-                soon!
-            </p>
-        </div>
+        <header>
+            <a href="#" class="logo">Liam</a>
+
+            <nav>
+                <a href="#" class="active">Home</a>
+                <a href="#">Projects</a>
+                <a href="#">Posts</a>
+                <a href="#">Resume</a>
+                <a href="#">Contact</a>
+            </nav>
+        </header>
+
+        <section class="home">
+            <div class="home-img">
+                <img src="headshot_main.jpg" alt="" />
+            </div>
+            <div class="home-content">
+                <h1>Hi, I'm <span>Liam</span></h1>
+                <h3 class="typing-text">I'm a <span></span></h3>
+                <p>
+                    this is a test of the national broadcasting system.this is a
+                    test of the national broadcasting system. this is a test of
+                    the national broadcasting system.this is a test of the
+                    national broadcasting system.
+                </p>
+                <div class="social-icons">
+                    <a href="#"> <i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"> <i class="fa-brands fa-github"></i></a>
+                    <a href="#"> <i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <a href="#" class="btn"> Get in Touch </a>
+            </div>
+        </section>
     </body>
 </html>
