@@ -23,8 +23,8 @@
 
             <nav>
                 <a href="#" class="active">Home</a>
-                <a href="#">Projects</a>
-                <a href="#">Posts</a>
+                <a href="#projects">Projects</a>
+                <a href="#posts">Posts</a>
                 <a href="LiamWeeksResume.pdf">Resume</a>
                 <a href="#">Contact</a>
             </nav>
@@ -36,20 +36,156 @@
             </div>
             <div class="home-content">
                 <h1>Hi, I'm <span>Liam</span></h1>
-                <h3 class="typing-text">I'm a <span></span></h3>
+                <h3 class="typing-text">I'm a <span id="typing"></span></h3>
                 <p>
-                    this is a test of the national broadcasting system.this is a
-                    test of the national broadcasting system. this is a test of
-                    the national broadcasting system.this is a test of the
-                    national broadcasting system.
+                    I'm a software developer with a passion for creating
+                    practical tools and exploring elegant algorithms. I'm
+                    particularly drawn to programming languages, math and
+                    cryptography. I'm studying Computer Science (Honours) at
+                    Queen's University, where I focus on cybersecurity and a
+                    minor in mathematics.
                 </p>
-                <div class="social-icons">
+                <!-- <div class="social-icons">
                     <a href="#"> <i class="fa-brands fa-linkedin"></i></a>
                     <a href="#"> <i class="fa-brands fa-github"></i></a>
                     <a href="#"> <i class="fa-brands fa-instagram"></i></a>
+                </div> -->
+                <div class="social-icons">
+                    <a
+                        href="https://www.linkedin.com/in/liamweeks"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a
+                        href="https://github.com/liamweeks"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a
+                        href="https://www.instagram.com/liam.weeks_/"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
                 </div>
                 <a href="#" class="btn"> Get in Touch </a>
             </div>
         </section>
+
+        <div class="home" id="projects">
+            <h1>Projects</h1>
+        </div>
+
+        <div class="cards">
+            <article class="card">
+                <img src="headshot_main.jpg" alt="A rugby player" />
+                <div class="content">
+                    <h2>About me</h2>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="8bit.jpg" alt="Hot air balloons" />
+                <div class="content">
+                    <h2>Building an 8-bit computer</h2>
+                </div>
+                <!-- <footer>I have a footer!</footer> -->
+            </article>
+
+            <article class="card" ,>
+                <img src="mammogram.jpg" alt="Hot air balloons" />
+                <div class="content">
+                    <h2>Finding tumors using Machine Learning</h2>
+                </div>
+                <!-- <footer>I have a footer!</footer> -->
+            </article>
+        </div>
+
+        <div class="home" id="posts">
+            <h1>Posts</h1>
+        </div>
+
+        <div class="cards">
+            <article class="card">
+                <img
+                    src="fourier.jpeg"
+                    alt="A graph of frequency versus time"
+                />
+                <div class="content">
+                    <h2>Applications of the Fourier Transform</h2>
+                </div>
+            </article>
+
+            <article class="card">
+                <img
+                    src="iso8601.png"
+                    alt="Some code representing a date in ISO8601"
+                />
+                <div class="content">
+                    <h2>I love ISO-8601</h2>
+                </div>
+                <!-- <footer>I have a footer!</footer> -->
+            </article>
+
+            <article class="card" ,>
+                <img src="binomial.gif" alt="A binomial distribution" />
+                <div class="content">
+                    <h2>What is the binomial distribution?</h2>
+                </div>
+                <!-- <footer>I have a footer!</footer> -->
+            </article>
+        </div>
+
+        <script>
+            const words = [
+                "software developer",
+                "rugby player",
+                "scientist",
+                "leader",
+                "nerd but athletic",
+                "volunteer",
+            ];
+
+            let i = 0; // word index
+            let j = 0; // letter index
+            let currentWord = "";
+            let isDeleting = false;
+            const typingElement = document.getElementById("typing");
+
+            function type() {
+                if (i >= words.length) i = 0;
+                currentWord = words[i];
+
+                if (!isDeleting) {
+                    typingElement.textContent = currentWord.substring(0, j + 1);
+                    j++;
+
+                    if (j === currentWord.length) {
+                        isDeleting = true;
+                        setTimeout(type, 1500); // pause after full word
+                        return;
+                    }
+                } else {
+                    typingElement.textContent = currentWord.substring(0, j - 1);
+                    j--;
+
+                    if (j === 0) {
+                        isDeleting = false;
+                        i++;
+                    }
+                }
+
+                setTimeout(type, isDeleting ? 50 : 100); // speed
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                type();
+            });
+        </script>
     </body>
 </html>

@@ -1,12 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400%3B500%3B600&display=swap");
 
+:root {
+    --background_colour: #0e0e0e;
+    --text_colour: #fefefe;
+    --accent_1: #8884ff;
+    --green_accent: #3ae374;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     border: none;
-    outine: none;
+    outline: none;
     font-family: "Poppins", sans-serif;
 }
 
@@ -18,28 +24,29 @@ body {
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
-    background-color: black;
+    background-color: var(--background_colour);
     color: white;
 }
 
 header {
-    margin-top: 20px;
+    margin-top: 0px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 1rem 9%;
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: var(--background_colour);
     filter: drop-shadow(10px);
     display: flex;
     justify-content: space-between;
-    align-items: centre;
+    align-items: center;
     z-index: 100;
 }
 
 .logo {
     font-size: 3rem;
-    color: #b74b4b;
+    color: var(--accent_1);
     font-weight: 800;
     cursor: pointer;
     transition: 0.5s ease;
@@ -51,7 +58,7 @@ header {
 
 nav a {
     font-size: 1.8rem;
-    color: white;
+    color: var(--text_colour);
     margin-left: 4rem;
     font-weight: 500;
     transition: 0.3s ease;
@@ -60,8 +67,8 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    color: #b74b4b;
-    border-bottom: 3px solid #b74b4b;
+    color: var(--accent_1);
+    border-bottom: 3px solid var(--accent_1);
 }
 
 nav {
@@ -74,8 +81,8 @@ nav {
         display: none;
         right: 0;
         width: 40%;
-        border-left: 3px solid #b74b4b;
-        border-bottom: 3px solid #b74b4b;
+        border-left: 3px solid var(--accent_1);
+        border-bottom: 3px solid var(--accent_1);
         border-bottom-left-radius: 2rem;
         padding: 1rem solid;
         background-color: #161616;
@@ -91,6 +98,7 @@ nav a {
     display: block;
     font-size: 2rem;
     margin: 3rem;
+    transition: 0.3s ease;
 }
 
 p {
@@ -102,7 +110,8 @@ p {
 nav a:hover,
 nav a.active {
     border-radius: 0.5rem;
-    border-bottom: 0.5rem solid #b74b4b;
+    border-bottom: 0.5rem solid var(--accent_1);
+    transform: scale(1.3) translateY(-5px);
 }
 
 section {
@@ -115,7 +124,7 @@ section {
     justify-content: center;
     align-items: center;
     gap: 8rem;
-    background-color: black;
+    background-color: var(--background_colour);
 }
 
 .home .home-content h1 {
@@ -125,7 +134,7 @@ section {
 }
 
 span {
-    color: #b74b4b;
+    color: var(--accent_1);
 }
 
 .home-content p {
@@ -146,7 +155,7 @@ span {
     position: relative;
     width: 32vw;
     border-radius: 50%;
-    box-shadow: 0 0 25px solid #b74b4b;
+    box-shadow: 0 0 25px solid var(--accent_1);
     cursor: pointer;
     transition: 0.2s linear;
 }
@@ -154,6 +163,12 @@ span {
 .home-img img:hover {
     font-size: 1.8rem;
     font-weight: 500;
+}
+
+.social-icons div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .social-icons a {
@@ -164,7 +179,7 @@ span {
     height: 4rem;
     color: white;
     background-color: transparent;
-    border: 0.2rem solid #b74b4b;
+    border: 0.2rem solid var(--accent_1);
     font-size: 2rem;
     border-radius: 50%;
     margin: 3rem 1.5rem 3rem 0;
@@ -174,20 +189,21 @@ span {
 .social-icons a:hover {
     color: black;
     transform: scale(1.3) translateY(-5px);
-    background-color: #b74b4b;
-    box-shadow: 0 0 25px solid #b74b4b;
+    background-color: var(--green_accent);
+    box-shadow: 0 0 25px solid var(--green_accent);
+    border: 0.2rem solid var(--green);
 }
 
 .btn {
     display: inline-block;
     padding: 1rem 2.8rem;
-    background-color: black;
+    background-color: var(--background_colour);
     border-radius: 4rem;
     font-size: 1.6rem;
-    color: #b74b4b;
+    color: var(--accent_1);
     letter-spacing: 0.3rem;
     font-weight: 600;
-    border: 2px solid #b74b4b;
+    border: 2px solid var(--accent_1);
     transition: 0.3s ease;
     cursor: pointer;
 }
@@ -196,8 +212,9 @@ span {
     color: black;
     transform: scale(1.3) translateY(-5px);
     transition: 0.3s ease;
-    background-color: #b74b4b;
-    box-shadow: 0 0 25px solid #b74b4b;
+    background-color: var(--green_accent);
+    box-shadow: 0 0 25px solid var(--green_accent);
+    border: 0.2rem solid var(--green_accent);
 }
 
 .typing-text {
@@ -211,29 +228,42 @@ span {
 }
 
 .typing-text span::before {
-    content: "software developer";
-    color: #b74b4b;
+    /* content: "software developer"; */
+    color: var(--accent_1);
     animation: words 20s infinite;
 }
 
 .typing-text span::after {
     content: "";
-    background-color: black;
+    background-color: var(--background_colour);
     position: absolute;
     width: calc(100% + 8px);
     height: 100%;
-    border-left: 3px solid black;
+    border-left: 3px solid var(--background_colour);
     right: -8;
     animation: cursor 0.5s infinite;
 }
 
 @keyframes cursor {
     to {
-        border-left: 3px solid #b74b4b;
+        border-left: 3px solid var(--accent_1);
     }
 }
 
-@keyframes words {
+#typing::after {
+    content: "|";
+    animation: blink 0.7s steps(2, start) infinite;
+    color: var(--accent_1);
+    margin-left: 4px;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+/* @keyframes words {
     0%,
     20% {
         content: "developer";
@@ -256,14 +286,14 @@ span {
 
     61%,
     80% {
-        content: "educator";
+        content: "nerd but athletic";
     }
 
     81%,
     100% {
         content: "volunteer";
     }
-}
+} */
 
 @media (max-width: 1000px) {
     .home {
@@ -289,4 +319,56 @@ span {
         width: 70vw;
         margin-top: 4rem;
     }
+}
+
+body {
+    font: 1.2em sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+.cards {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2em auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+
+    justify-items: center;
+}
+.card {
+    border: 1px solid #999;
+    border-radius: 4rem;
+
+    display: grid;
+    grid-template-rows: max-content 200px 1fr;
+}
+
+.card img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 4rem;
+}
+
+.card h2 {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-size: 3rem; /* Larger than the default */
+    font-weight: 700; /* Bold */
+    color: var(--accent_1);
+}
+
+.card .content {
+    padding: 0.5rem;
+}
+
+.card footer {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem;
 }
