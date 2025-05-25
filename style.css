@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400%3B500%3B600&display=swap");
+@use postcss-mixins;
+@use postcss-nested;
+@use postcss-simple-vars;
 
 :root {
     --background_colour: #0e0e0e;
@@ -42,6 +45,7 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    opacity: 0.8;
 }
 
 .logo {
@@ -77,6 +81,7 @@ nav {
 @media (max-width: 995px) {
     nav {
         position: absolute;
+        flex-direction: column; /* force horizontal layout */
         top: 0;
         display: none;
         right: 0;
@@ -355,6 +360,10 @@ img {
     border-radius: 4rem;
 }
 
+.content {
+    opacity: 0.8;
+}
+
 .card h2 {
     margin: 0.5rem;
     padding: 0.5rem;
@@ -371,4 +380,27 @@ img {
     background-color: #333;
     color: #fff;
     padding: 0.5rem;
+}
+.navbar ul {
+    list-style-type: none;
+    background-color: var(--background_colour);
+    padding: 0px;
+    margins: 0px;
+    overflow: hidden;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 0.15rem;
+    display: block;
+    text-align: center;
+}
+
+.navbar a:hover {
+    color: var(--accent_1);
+}
+
+.navbar li {
+    float: right;
 }
