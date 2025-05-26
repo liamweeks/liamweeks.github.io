@@ -144,6 +144,18 @@
         </div>
 
         <script>
+            document.querySelectorAll(".navbar a").forEach((link) => {
+                link.addEventListener("click", function () {
+                    // Remove 'active' from all links
+                    document
+                        .querySelectorAll(".navbar a")
+                        .forEach((el) => el.classList.remove("active"));
+
+                    // Add 'active' to the clicked link
+                    this.classList.add("active");
+                });
+            });
+
             const words = [
                 "software developer",
                 "rugby player",
