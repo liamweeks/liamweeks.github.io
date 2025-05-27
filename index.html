@@ -23,10 +23,28 @@
 
             <nav class="navbar">
                 <ul>
-                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <a
+                            href="#contact"
+                            onclick="scrollToSection(event, 'contact')"
+                            >Contact</a
+                        >
+                    </li>
                     <li><a href="LiamWeeksResume.pdf">Resume</a></li>
-                    <li><a href="#posts">Posts</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li>
+                        <a
+                            href="#posts"
+                            onclick="scrollToSection(event, 'posts')"
+                            >Posts</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#projects"
+                            onclick="scrollToSection(event, 'projects')"
+                            >Projects</a
+                        >
+                    </li>
                     <li><a href="" class="active">Home</a></li>
                 </ul>
             </nav>
@@ -144,14 +162,19 @@
         </div>
 
         <script>
+            function scrollToSection(event, sectionId) {
+                event.preventDefault(); // prevents the URL from changing
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+
             document.querySelectorAll(".navbar a").forEach((link) => {
                 link.addEventListener("click", function () {
-                    // Remove 'active' from all links
                     document
                         .querySelectorAll(".navbar a")
                         .forEach((el) => el.classList.remove("active"));
-
-                    // Add 'active' to the clicked link
                     this.classList.add("active");
                 });
             });
