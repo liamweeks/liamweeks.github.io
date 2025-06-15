@@ -24,13 +24,13 @@
             <nav class="navbar">
                 <ul>
                     <li>
-                        <a
+                        <!-- <a
                             href="#contact"
                             onclick="scrollToSection(event, 'contact')"
                             >Contact</a
-                        >
+                        > -->
                     </li>
-                    <li><a href="LiamWeeksResume.pdf">Resume</a></li>
+                    <li><a href="files/LiamWeeksResume.pdf">Resume</a></li>
                     <li>
                         <a
                             href="#posts"
@@ -52,7 +52,7 @@
 
         <section class="home">
             <div class="home-img">
-                <img src="headshot_main.jpg" alt="" />
+                <img src="files/headshot_main.jpg" alt="" />
             </div>
             <div class="home-content">
                 <h1>Hi, I'm <span>Liam</span></h1>
@@ -93,7 +93,7 @@
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                 </div>
-                <a href="#" class="btn"> Get in Touch </a>
+                <!-- <a href="#" class="btn"> Get in Touch </a> -->
             </div>
         </section>
 
@@ -103,32 +103,29 @@
 
         <div class="cards">
             <div class="center">
-                <div class="article-card">
+                <div class="article-card" data-post="finding_tumors.md">
                     <div class="content">
                         <!-- <p class="date">Jan 1, 2022</p> -->
-                        <p class="title">
-                            Finding Tumors With Machine Learning
-                        </p>
+                        <p class="title">Finding Tumors With Machine Learning</p>
                     </div>
-                    <img src="mammogram.jpg" alt="article-cover" />
+                    <img src="files/mammogram.jpg" alt="article-cover" />
                 </div>
             </div>
             <div class="center">
-                <div class="article-card">
+                <div class="article-card" data-post="8bit.md">
                     <div class="content">
                         <!-- <p class="date">Jan 1, 2022</p> -->
                         <p class="title">Building a Computer</p>
                     </div>
-                    <img src="8bit.jpg" alt="article-cover" />
+                    <img src="files/8bit.jpg" alt="article-cover" />
                 </div>
             </div>
             <div class="center">
-                <div class="article-card">
+                <div class="article-card" data-post="about_me.md">
                     <div class="content">
-                        <p class="date">Jan 1, 2022</p>
                         <p class="title">About Me</p>
                     </div>
-                    <img src="headshot_main.jpg" alt="article-cover" />
+                    <img src="files/headshot_main.jpg" alt="article-cover" />
                 </div>
             </div>
         </div>
@@ -136,6 +133,19 @@
         <!-- <div class="home" id="posts">
             <h1>Posts</h1>
         </div> -->
+
+        <!-- Slide-in Panel -->
+
+        <div id="project-panel" class="project-panel hidden">
+            <div class="panel-content">
+                <span class="close-button">&times;</span>
+                <h2 id="panel-title">Project Title</h2>
+                <img id="panel-image" src="" alt="Project image" />
+                <p id="panel-description">Project description goes here...</p>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
 
         <script>
             function scrollToSection(event, sectionId) {
@@ -157,10 +167,10 @@
 
             const words = [
                 "software developer",
+                "mechanical engineer",
                 "rugby player",
                 "scientist",
                 "leader",
-                "nerd but athletic",
                 "volunteer",
             ];
 
@@ -198,6 +208,67 @@
 
             document.addEventListener("DOMContentLoaded", () => {
                 type();
+            });
+
+            const cards = document.querySelectorAll(".article-card");
+            const panel = document.getElementById("project-panel");
+            const panelTitle = document.getElementById("panel-title");
+            const panelImage = document.getElementById("panel-image");
+            const panelDescription =
+                document.getElementById("panel-description");
+            const closeButton = document.querySelector(".close-button");
+
+            // Add project data here
+            const projectData = {
+                "Finding Tumors With Machine Learning": {
+                    title: "Finding Tumors With Machine Learning",
+                    file:
+                        "posts/mammogram.html",
+                    image: "files/mammogram.jpg",
+                },
+                "Building a Computer": {
+                    title: "Building an 8-bit Computer",
+                    file:"posts/8bit.html",
+                    image: "files/8bit.jpg",
+                },
+                "About Me": {
+                    title: "About Me",
+                    file: "posts/about_me.html",
+                    image: "files/headshot_main.jpg",
+                },
+            };
+
+            //Hook up each card
+            cards.forEach((card) => {
+                card.addEventListener("click", async () => {
+                const title = card.querySelector(".title").textContent;
+                const data = projectData[title];
+                if (!data) return;
+
+                try {
+                    // Fetch raw HTML content from the file path in `data.location`
+                    const res = await fetch(`posts/location/${data.file}`);
+                    if (!res.ok) throw new Error("Failed to load HTML content.");
+                    const html = await res.text();
+
+                    panelTitle.textContent = data.title;
+                    panelImage.src = data.image;
+                    panelDescription.innerHTML = `<embed src="${data.file}">`;
+
+                    panel.classList.remove("hidden");
+                    setTimeout(() => panel.classList.add("active"), 10);
+                } catch (err) {
+                    panelDescription.innerHTML = `<p style="color:red;">Error loading post: ${err.message}</p>`;
+                }
+                });
+                });
+
+
+
+            // Close button
+            closeButton.addEventListener("click", () => {
+                panel.classList.remove("active");
+                setTimeout(() => panel.classList.add("hidden"), 300);
             });
         </script>
     </body>

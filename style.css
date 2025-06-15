@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400%3B500%3B600&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css");
 @use postcss-mixins;
 @use postcss-nested;
 @use postcss-simple-vars;
@@ -233,7 +234,6 @@ span {
 }
 
 .typing-text span::before {
-    /* content: "software developer"; */
     color: var(--accent_1);
     animation: words 20s infinite;
 }
@@ -267,38 +267,6 @@ span {
         visibility: hidden;
     }
 }
-
-/* @keyframes words {
-    0%,
-    20% {
-        content: "developer";
-    }
-
-    21%,
-    40% {
-        content: "rugby player";
-    }
-
-    41%,
-    60% {
-        content: "scientist";
-    }
-
-    61%,
-    80% {
-        content: "leader";
-    }
-
-    61%,
-    80% {
-        content: "nerd but athletic";
-    }
-
-    81%,
-    100% {
-        content: "volunteer";
-    }
-} */
 
 @media (max-width: 1000px) {
     .home {
@@ -474,4 +442,69 @@ body {
 .article-card .title {
     font-size: 17px;
     color: #fff;
+}
+
+.project-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    background-color: #1a1a1a;
+    color: white;
+    z-index: 999;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.project-panel.active {
+    transform: translateX(0);
+}
+
+.project-panel .panel-content img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+
+.project-panel .close-button {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--accent_1);
+}
+
+.hidden {
+    display: none;
+}
+
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+
+code {
+    font-family: monospace;
+    background-color: #0f0f0f;
+    padding: 0.2rem;
+    border-radius: 10%;
 }
