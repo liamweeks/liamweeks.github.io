@@ -103,25 +103,56 @@
 
         <div class="cards">
             <div class="center">
+<<<<<<< HEAD
                 <div class="article-card" data-post="finding_tumors.md">
                     <div class="content">
                         <!-- <p class="date">Jan 1, 2022</p> -->
                         <p class="title">Finding Tumors With Machine Learning</p>
+=======
+                <div
+                    class="article-card"
+                    onclick="goToPost('projects/mammogram.html')"
+                >
+                    <div class="content">
+                        <p class="title">
+                            Finding Tumors With Machine Learning
+                        </p>
+>>>>>>> temp
                     </div>
                     <img src="files/mammogram.jpg" alt="article-cover" />
                 </div>
             </div>
             <div class="center">
+<<<<<<< HEAD
                 <div class="article-card" data-post="8bit.md">
+=======
+                <div
+                    class="article-card"
+                    onclick="goToPost('projects/8bit.html')"
+                >
+>>>>>>> temp
                     <div class="content">
-                        <!-- <p class="date">Jan 1, 2022</p> -->
                         <p class="title">Building a Computer</p>
                     </div>
                     <img src="files/8bit.jpg" alt="article-cover" />
                 </div>
             </div>
+        </div>
+
+        <div class="home" id="posts">
+            <h1>Posts</h1>
+        </div>
+
+        <div class="cards">
             <div class="center">
+<<<<<<< HEAD
                 <div class="article-card" data-post="about_me.md">
+=======
+                <div
+                    class="article-card"
+                    onclick="goToPost('posts/about_me.html')"
+                >
+>>>>>>> temp
                     <div class="content">
                         <p class="title">About Me</p>
                     </div>
@@ -130,6 +161,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <!-- <div class="home" id="posts">
             <h1>Posts</h1>
         </div> -->
@@ -147,7 +179,13 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
 
+=======
+>>>>>>> temp
         <script>
+            function goToPost(url) {
+                window.location.href = url;
+            }
+
             function scrollToSection(event, sectionId) {
                 event.preventDefault(); // prevents the URL from changing
                 const element = document.getElementById(sectionId);
