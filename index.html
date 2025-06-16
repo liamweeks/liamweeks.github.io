@@ -1,14 +1,9 @@
 <!doctype html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            ,
-            content="width=device-width, initial-scale=1.0"
-        />
-        <!-- @import
-        url("https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400%3B500%3B600&display=swap"); -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -18,258 +13,20 @@
     </head>
 
     <body>
-        <header>
-            <a href="" class="logo">Liam</a>
-
-            <nav class="navbar">
-                <ul>
-                    <li>
-                        <!-- <a
-                            href="#contact"
-                            onclick="scrollToSection(event, 'contact')"
-                            >Contact</a
-                        > -->
-                    </li>
-                    <li><a href="files/LiamWeeksResume.pdf">Resume</a></li>
-                    <li>
-                        <a
-                            href="#posts"
-                            onclick="scrollToSection(event, 'posts')"
-                            >Posts</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="#projects"
-                            onclick="scrollToSection(event, 'projects')"
-                            >Projects</a
-                        >
-                    </li>
-                    <li><a href="" class="active">Home</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <section class="home">
-            <div class="home-img">
-                <img src="files/headshot_main.jpg" alt="" />
-            </div>
-            <div class="home-content">
-                <h1>Hi, I'm <span>Liam</span></h1>
-                <h3 class="typing-text">I'm a <span id="typing"></span></h3>
-                <p>
-                    I'm a software developer with a passion for creating
-                    practical tools and exploring elegant algorithms. I'm
-                    particularly drawn to programming languages, math and
-                    cryptography. I'm studying Computer Science (Honours) at
-                    Queen's University, where I focus on cybersecurity and a
-                    minor in mathematics.
-                </p>
-                <!-- <div class="social-icons">
-                    <a href="#"> <i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"> <i class="fa-brands fa-github"></i></a>
-                    <a href="#"> <i class="fa-brands fa-instagram"></i></a>
-                </div> -->
-                <div class="social-icons">
-                    <a
-                        href="https://www.linkedin.com/in/liamweeks"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                    <a
-                        href="https://github.com/liamweeks"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a
-                        href="https://www.instagram.com/liam.weeks_/"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                </div>
-                <!-- <a href="#" class="btn"> Get in Touch </a> -->
-            </div>
-        </section>
-
-        <div class="home" id="projects">
-            <h1>Projects</h1>
-        </div>
-
-        <div class="cards">
-            <div class="center">
-                <div class="article-card" data-post="finding_tumors.md">
-                    <div class="content">
-                        <!-- <p class="date">Jan 1, 2022</p> -->
-                        <p class="title">Finding Tumors With Machine Learning</p>
-                    </div>
-                    <img src="files/mammogram.jpg" alt="article-cover" />
-                </div>
-            </div>
-            <div class="center">
-                <div class="article-card" data-post="8bit.md">
-                    <div class="content">
-                        <!-- <p class="date">Jan 1, 2022</p> -->
-                        <p class="title">Building a Computer</p>
-                    </div>
-                    <img src="files/8bit.jpg" alt="article-cover" />
-                </div>
-            </div>
-            <div class="center">
-                <div class="article-card" data-post="about_me.md">
-                    <div class="content">
-                        <p class="title">About Me</p>
-                    </div>
-                    <img src="files/headshot_main.jpg" alt="article-cover" />
-                </div>
+        <div class="blog-grid">
+            <div class="card" onclick="goToPost('posts/post1.html')">
+                <img src="images/post1.jpg" alt="Post 1 thumbnail" />
+                <h3>Post Title 1</h3>
+                <p>A short preview of the post...</p>
             </div>
         </div>
 
-        <!-- <div class="home" id="posts">
-            <h1>Posts</h1>
-        </div> -->
-
-        <!-- Slide-in Panel -->
-
-        <div id="project-panel" class="project-panel hidden">
-            <div class="panel-content">
-                <span class="close-button">&times;</span>
-                <h2 id="panel-title">Project Title</h2>
-                <img id="panel-image" src="" alt="Project image" />
-                <p id="panel-description">Project description goes here...</p>
-            </div>
+        <div class="card" onclick="goToPost('posts/post2.html')">
+            <img src="images/post2.jpg" alt="Post 2 thumbnail" />
+            <h3>Post Title 2</h3>
+            <p>Another short preview...</p>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
-
-        <script>
-            function scrollToSection(event, sectionId) {
-                event.preventDefault(); // prevents the URL from changing
-                const element = document.getElementById(sectionId);
-                if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                }
-            }
-
-            document.querySelectorAll(".navbar a").forEach((link) => {
-                link.addEventListener("click", function () {
-                    document
-                        .querySelectorAll(".navbar a")
-                        .forEach((el) => el.classList.remove("active"));
-                    this.classList.add("active");
-                });
-            });
-
-            const words = [
-                "software developer",
-                "mechanical engineer",
-                "rugby player",
-                "scientist",
-                "leader",
-                "volunteer",
-            ];
-
-            let i = 0; // word index
-            let j = 0; // letter index
-            let currentWord = "";
-            let isDeleting = false;
-            const typingElement = document.getElementById("typing");
-
-            function type() {
-                if (i >= words.length) i = 0;
-                currentWord = words[i];
-
-                if (!isDeleting) {
-                    typingElement.textContent = currentWord.substring(0, j + 1);
-                    j++;
-
-                    if (j === currentWord.length) {
-                        isDeleting = true;
-                        setTimeout(type, 1500); // pause after full word
-                        return;
-                    }
-                } else {
-                    typingElement.textContent = currentWord.substring(0, j - 1);
-                    j--;
-
-                    if (j === 0) {
-                        isDeleting = false;
-                        i++;
-                    }
-                }
-
-                setTimeout(type, isDeleting ? 50 : 100); // speed
-            }
-
-            document.addEventListener("DOMContentLoaded", () => {
-                type();
-            });
-
-            const cards = document.querySelectorAll(".article-card");
-            const panel = document.getElementById("project-panel");
-            const panelTitle = document.getElementById("panel-title");
-            const panelImage = document.getElementById("panel-image");
-            const panelDescription =
-                document.getElementById("panel-description");
-            const closeButton = document.querySelector(".close-button");
-
-            // Add project data here
-            const projectData = {
-                "Finding Tumors With Machine Learning": {
-                    title: "Finding Tumors With Machine Learning",
-                    file:
-                        "posts/mammogram.html",
-                    image: "files/mammogram.jpg",
-                },
-                "Building a Computer": {
-                    title: "Building an 8-bit Computer",
-                    file:"posts/8bit.html",
-                    image: "files/8bit.jpg",
-                },
-                "About Me": {
-                    title: "About Me",
-                    file: "posts/about_me.html",
-                    image: "files/headshot_main.jpg",
-                },
-            };
-
-            //Hook up each card
-            cards.forEach((card) => {
-                card.addEventListener("click", async () => {
-                const title = card.querySelector(".title").textContent;
-                const data = projectData[title];
-                if (!data) return;
-
-                try {
-                    // Fetch raw HTML content from the file path in `data.location`
-                    const res = await fetch(`posts/location/${data.file}`);
-                    if (!res.ok) throw new Error("Failed to load HTML content.");
-                    const html = await res.text();
-
-                    panelTitle.textContent = data.title;
-                    panelImage.src = data.image;
-                    panelDescription.innerHTML = `<embed src="${data.file}">`;
-
-                    panel.classList.remove("hidden");
-                    setTimeout(() => panel.classList.add("active"), 10);
-                } catch (err) {
-                    panelDescription.innerHTML = `<p style="color:red;">Error loading post: ${err.message}</p>`;
-                }
-                });
-                });
-
-
-
-            // Close button
-            closeButton.addEventListener("click", () => {
-                panel.classList.remove("active");
-                setTimeout(() => panel.classList.add("hidden"), 300);
-            });
-        </script>
+        <script src="main.js"></script>
     </body>
 </html>
