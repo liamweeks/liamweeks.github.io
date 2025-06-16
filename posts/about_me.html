@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="../style.css" />
+        <title>About Me – Liam Weeks</title>
+    </head>
+
+    <body>
+        <header>
+            <a href="../index.html" class="logo">Liam</a>
+            <nav class="navbar">
+                <ul>
+                    <li>
+                        <a
+                            href="../index.html#contact"
+                            onclick="scrollToSection(event, 'contact')"
+                            >Contact</a
+                        >
+                    </li>
+                    <li><a href="../LiamWeeksResume.pdf">Resume</a></li>
+                    <li>
+                        <a
+                            href="../index.html#posts"
+                            onclick="scrollToSection(event, 'posts')"
+                            >Posts</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="../index.html#projects"
+                            onclick="scrollToSection(event, 'projects')"
+                            >Projects</a
+                        >
+                    </li>
+                    <li><a href="../index.html">Home</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="home" style="flex-direction: column; padding-top: 10rem">
+            <h1 style="font-size: 4rem; margin-bottom: 2rem">
+                About <span>Me</span>
+            </h1>
+
+            <div style="max-width: 800px; line-height: 1.8; font-size: 1.8rem">
+                <p>
+                    Hi, I’m Liam — a computer science student and software
+                    developer with a deep interest in solving problems with
+                    code. I thrive in that sweet spot between elegant
+                    abstraction and practical implementation.
+                </p>
+                <p>
+                    My background includes building hardware projects like an
+                    8-bit computer from 74LS chips, developing web apps,
+                    creating machine learning pipelines, and experimenting with
+                    cryptographic protocols. I especially enjoy challenges that
+                    combine systems thinking, security, and math.
+                </p>
+                <p>
+                    Outside of tech, I play rugby, volunteer in my community,
+                    and occasionally teach kids how to build robots or write
+                    their first lines of code.
+                </p>
+                <p>
+                    This blog is where I explore side projects, reflect on
+                    learning experiences, and sometimes share puzzles I’m
+                    working on. Thanks for reading!
+                </p>
+            </div>
+
+            <a href="../index.html#posts" class="btn" style="margin-top: 3rem">
+                ← Back to Posts
+            </a>
+        </main>
+
+        <script>
+            function scrollToSection(event, sectionId) {
+                event.preventDefault();
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+
+            document.querySelectorAll(".navbar a").forEach((link) => {
+                link.addEventListener("click", function () {
+                    document
+                        .querySelectorAll(".navbar a")
+                        .forEach((el) => el.classList.remove("active"));
+                    this.classList.add("active");
+                });
+            });
+        </script>
+    </body>
+</html>

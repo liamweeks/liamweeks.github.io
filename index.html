@@ -103,9 +103,11 @@
 
         <div class="cards">
             <div class="center">
-                <div class="article-card">
+                <div
+                    class="article-card"
+                    onclick="goToPost('projects/mammogram.html')"
+                >
                     <div class="content">
-                        <!-- <p class="date">Jan 1, 2022</p> -->
                         <p class="title">
                             Finding Tumors With Machine Learning
                         </p>
@@ -114,18 +116,29 @@
                 </div>
             </div>
             <div class="center">
-                <div class="article-card">
+                <div
+                    class="article-card"
+                    onclick="goToPost('projects/8bit.html')"
+                >
                     <div class="content">
-                        <!-- <p class="date">Jan 1, 2022</p> -->
                         <p class="title">Building a Computer</p>
                     </div>
                     <img src="8bit.jpg" alt="article-cover" />
                 </div>
             </div>
+        </div>
+
+        <div class="home" id="posts">
+            <h1>Posts</h1>
+        </div>
+
+        <div class="cards">
             <div class="center">
-                <div class="article-card">
+                <div
+                    class="article-card"
+                    onclick="goToPost('posts/about_me.html')"
+                >
                     <div class="content">
-                        <p class="date">Jan 1, 2022</p>
                         <p class="title">About Me</p>
                     </div>
                     <img src="headshot_main.jpg" alt="article-cover" />
@@ -133,11 +146,11 @@
             </div>
         </div>
 
-        <!-- <div class="home" id="posts">
-            <h1>Posts</h1>
-        </div> -->
-
         <script>
+            function goToPost(url) {
+                window.location.href = url;
+            }
+
             function scrollToSection(event, sectionId) {
                 event.preventDefault(); // prevents the URL from changing
                 const element = document.getElementById(sectionId);

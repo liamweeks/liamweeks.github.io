@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="../style.css" />
+        <title>Finding Tumors With Machine Learning – Liam Weeks</title>
+    </head>
+
+    <body>
+        <header>
+            <a href="../index.html" class="logo">Liam</a>
+            <nav class="navbar">
+                <ul>
+                    <li>
+                        <a
+                            href="../index.html#contact"
+                            onclick="scrollToSection(event, 'contact')"
+                            >Contact</a
+                        >
+                    </li>
+                    <li><a href="../LiamWeeksResume.pdf">Resume</a></li>
+                    <li>
+                        <a
+                            href="../index.html#posts"
+                            onclick="scrollToSection(event, 'posts')"
+                            >Posts</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="../index.html#projects"
+                            onclick="scrollToSection(event, 'projects')"
+                            >Projects</a
+                        >
+                    </li>
+                    <li><a href="../index.html">Home</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="home" style="flex-direction: column; padding-top: 10rem">
+            <h1 style="font-size: 4rem; margin-bottom: 2rem">
+                Finding <span>Tumors</span> With Machine Learning
+            </h1>
+
+            <div style="max-width: 800px; line-height: 1.8; font-size: 1.8rem">
+                <p>
+                    In this project, I trained a machine learning model to
+                    detect potential tumors from digitized mammogram images. The
+                    dataset consisted of thousands of labeled samples from the
+                    Wisconsin Diagnostic Breast Cancer dataset, which includes
+                    features extracted from scans like texture, area, and
+                    smoothness.
+                </p>
+
+                <p>
+                    I used a combination of preprocessing, feature selection,
+                    and a random forest classifier to build a pipeline that
+                    achieved over 95% accuracy on a hold-out test set. Feature
+                    importance analysis showed that metrics like radius and
+                    concavity played key roles in the model’s decision-making.
+                </p>
+
+                <p>
+                    Beyond the numbers, this project taught me how to properly
+                    evaluate medical ML systems—especially the importance of
+                    precision and recall when false negatives can have serious
+                    consequences.
+                </p>
+
+                <p>
+                    In the future, I’d like to extend this work to image-based
+                    detection using convolutional neural networks and experiment
+                    with attention-based architectures for interpretability.
+                </p>
+            </div>
+
+            <a
+                href="../index.html#projects"
+                class="btn"
+                style="margin-top: 3rem"
+            >
+                ← Back to Projects
+            </a>
+        </main>
+
+        <script>
+            function scrollToSection(event, sectionId) {
+                event.preventDefault();
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+
+            document.querySelectorAll(".navbar a").forEach((link) => {
+                link.addEventListener("click", function () {
+                    document
+                        .querySelectorAll(".navbar a")
+                        .forEach((el) => el.classList.remove("active"));
+                    this.classList.add("active");
+                });
+            });
+        </script>
+    </body>
+</html>

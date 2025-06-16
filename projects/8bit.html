@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="../style.css" />
+        <title>Building an 8-Bit Computer – Liam Weeks</title>
+    </head>
+
+    <body>
+        <header>
+            <a href="../index.html" class="logo">Liam</a>
+            <nav class="navbar">
+                <ul>
+                    <li>
+                        <a
+                            href="../index.html#contact"
+                            onclick="scrollToSection(event, 'contact')"
+                            >Contact</a
+                        >
+                    </li>
+                    <li><a href="../LiamWeeksResume.pdf">Resume</a></li>
+                    <li>
+                        <a
+                            href="../index.html#posts"
+                            onclick="scrollToSection(event, 'posts')"
+                            >Posts</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="../index.html#projects"
+                            onclick="scrollToSection(event, 'projects')"
+                            >Projects</a
+                        >
+                    </li>
+                    <li><a href="../index.html">Home</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="home" style="flex-direction: column; padding-top: 10rem">
+            <h1 style="font-size: 4rem; margin-bottom: 2rem">
+                Building an <span>8-Bit</span> Computer
+            </h1>
+
+            <div style="max-width: 800px; line-height: 1.8; font-size: 1.8rem">
+                <p>
+                    I built a fully functional 8-bit computer from scratch using
+                    74LS series logic chips. This included creating a custom
+                    clock, ALU, registers, RAM, and control logic wired together
+                    on breadboards.
+                </p>
+
+                <p>
+                    Microcode drives the system, controlling instruction flow
+                    through a programmable ROM. I designed a simple instruction
+                    set with support for arithmetic, memory access, conditional
+                    jumps, and immediate values. Programs are loaded directly
+                    into RAM using DIP switches and a manual clock stepper.
+                </p>
+
+                <p>
+                    Debugging this machine taught me a lot about signal timing,
+                    decoupling capacitors, tri-state logic, and the patience
+                    needed to trace a broken NAND gate at 2am.
+                </p>
+
+                <p>
+                    There’s something deeply satisfying about watching machine
+                    code execute visibly, LED by LED. This project grounded my
+                    understanding of how high-level code eventually becomes
+                    logic gate toggles—and gave me a new appreciation for the
+                    complexity inside even the simplest CPU.
+                </p>
+            </div>
+
+            <a
+                href="../index.html#projects"
+                class="btn"
+                style="margin-top: 3rem"
+            >
+                ← Back to Projects
+            </a>
+        </main>
+
+        <script>
+            function scrollToSection(event, sectionId) {
+                event.preventDefault();
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+
+            document.querySelectorAll(".navbar a").forEach((link) => {
+                link.addEventListener("click", function () {
+                    document
+                        .querySelectorAll(".navbar a")
+                        .forEach((el) => el.classList.remove("active"));
+                    this.classList.add("active");
+                });
+            });
+        </script>
+    </body>
+</html>
