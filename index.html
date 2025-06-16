@@ -103,12 +103,6 @@
 
         <div class="cards">
             <div class="center">
-<<<<<<< HEAD
-                <div class="article-card" data-post="finding_tumors.md">
-                    <div class="content">
-                        <!-- <p class="date">Jan 1, 2022</p> -->
-                        <p class="title">Finding Tumors With Machine Learning</p>
-=======
                 <div
                     class="article-card"
                     onclick="goToPost('projects/mammogram.html')"
@@ -117,20 +111,15 @@
                         <p class="title">
                             Finding Tumors With Machine Learning
                         </p>
->>>>>>> temp
                     </div>
                     <img src="files/mammogram.jpg" alt="article-cover" />
                 </div>
             </div>
             <div class="center">
-<<<<<<< HEAD
-                <div class="article-card" data-post="8bit.md">
-=======
                 <div
                     class="article-card"
                     onclick="goToPost('projects/8bit.html')"
                 >
->>>>>>> temp
                     <div class="content">
                         <p class="title">Building a Computer</p>
                     </div>
@@ -145,14 +134,10 @@
 
         <div class="cards">
             <div class="center">
-<<<<<<< HEAD
-                <div class="article-card" data-post="about_me.md">
-=======
                 <div
                     class="article-card"
                     onclick="goToPost('posts/about_me.html')"
                 >
->>>>>>> temp
                     <div class="content">
                         <p class="title">About Me</p>
                     </div>
@@ -160,8 +145,6 @@
                 </div>
             </div>
         </div>
-
-<<<<<<< HEAD
         <!-- <div class="home" id="posts">
             <h1>Posts</h1>
         </div> -->
@@ -179,8 +162,6 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
 
-=======
->>>>>>> temp
         <script>
             function goToPost(url) {
                 window.location.href = url;
@@ -260,13 +241,12 @@
             const projectData = {
                 "Finding Tumors With Machine Learning": {
                     title: "Finding Tumors With Machine Learning",
-                    file:
-                        "posts/mammogram.html",
+                    file: "posts/mammogram.html",
                     image: "files/mammogram.jpg",
                 },
                 "Building a Computer": {
                     title: "Building an 8-bit Computer",
-                    file:"posts/8bit.html",
+                    file: "posts/8bit.html",
                     image: "files/8bit.jpg",
                 },
                 "About Me": {
@@ -279,29 +259,28 @@
             //Hook up each card
             cards.forEach((card) => {
                 card.addEventListener("click", async () => {
-                const title = card.querySelector(".title").textContent;
-                const data = projectData[title];
-                if (!data) return;
+                    const title = card.querySelector(".title").textContent;
+                    const data = projectData[title];
+                    if (!data) return;
 
-                try {
-                    // Fetch raw HTML content from the file path in `data.location`
-                    const res = await fetch(`posts/location/${data.file}`);
-                    if (!res.ok) throw new Error("Failed to load HTML content.");
-                    const html = await res.text();
+                    try {
+                        // Fetch raw HTML content from the file path in `data.location`
+                        const res = await fetch(`posts/location/${data.file}`);
+                        if (!res.ok)
+                            throw new Error("Failed to load HTML content.");
+                        const html = await res.text();
 
-                    panelTitle.textContent = data.title;
-                    panelImage.src = data.image;
-                    panelDescription.innerHTML = `<embed src="${data.file}">`;
+                        panelTitle.textContent = data.title;
+                        panelImage.src = data.image;
+                        panelDescription.innerHTML = `<embed src="${data.file}">`;
 
-                    panel.classList.remove("hidden");
-                    setTimeout(() => panel.classList.add("active"), 10);
-                } catch (err) {
-                    panelDescription.innerHTML = `<p style="color:red;">Error loading post: ${err.message}</p>`;
-                }
+                        panel.classList.remove("hidden");
+                        setTimeout(() => panel.classList.add("active"), 10);
+                    } catch (err) {
+                        panelDescription.innerHTML = `<p style="color:red;">Error loading post: ${err.message}</p>`;
+                    }
                 });
-                });
-
-
+            });
 
             // Close button
             closeButton.addEventListener("click", () => {
